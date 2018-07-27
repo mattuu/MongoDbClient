@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Linq;
 using Microsoft.Extensions.DependencyInjection;
 using MongoDbClient.Caching;
@@ -16,36 +17,44 @@ namespace MongoDbClient.ConsoleApp
 
             var serviceProvider = services.BuildServiceProvider();
 
-            var repo = serviceProvider.GetService<ICustomerRepository>();
-
-            var index = serviceProvider.GetService<ICustomerIndexEngine>();
-
-            Console.WriteLine("Hello World!");
-
-            var customers = repo.GetCustomersById(new[] {"ID"}).Result;
-            Console.WriteLine($"Notes count: {customers.Count()}");
-
-            foreach (var customer in customers)
+            using (var stream = File.OpenRead(Path.Combine(AppContext.BaseDirectory, "..", "..", "..", "input", "MOCK_DATA.csv")))
             {
-                Console.WriteLine($"{customer.FirstName}, {customer.Surname}");
+                var csvLines = new CsvDataReader().Read(stream);
+
+                Console.WriteLine($"{csvLines.Count()}");
             }
 
-            var newCustomer = new Customer
-            {
-                Id = "ID",
-                FirstName = "FirstName",
-                Surname = "Surname",
-                Address = "Address",
-                EmailAddress = "EmailAddress",
-                PhoneNumber = "PhoneNumber",
-                UpdatedOn = DateTime.Now
-            };
 
-            repo.AddOrUpdateCustomer("ID", newCustomer);
+            //var repo = serviceProvider.GetService<ICustomerRepository>();
 
-            //index.AddOrUpdateCustomer(newCustomer.Id, newCustomer.FirstName, newCustomer.)
+                //var index = serviceProvider.GetService<ICustomerIndexEngine>();
 
-            Console.ReadLine();
+                //Console.WriteLine("Hello World!");
+
+                //var customers = repo.GetCustomersById(new[] {"ID"}).Result;
+                //Console.WriteLine($"Notes count: {customers.Count()}");
+
+                //foreach (var customer in customers)
+                //{
+                //    Console.WriteLine($"{customer.FirstName}, {customer.Surname}");
+                //}
+
+                //var newCustomer = new Customer
+                //{
+                //    Id = "ID",
+                //    FirstName = "FirstName",
+                //    Surname = "Surname",
+                //    Address = "Address",
+                //    EmailAddress = "EmailAddress",
+                //    PhoneNumber = "PhoneNumber",
+                //    UpdatedOn = DateTime.Now
+                //};
+
+                //repo.AddOrUpdateCustomer("ID", newCustomer);
+
+                //index.AddOrUpdateCustomer(newCustomer.Id, newCustomer.FirstName, newCustomer.)
+
+                Console.ReadLine();
         }
     }
 }
