@@ -71,6 +71,15 @@ namespace MongoDbClient.ConsoleApp
         public CustomerCsvModelMap()
         {
             Map(m => m.Id).Name("id");
+            Map(m => m.Title).Name("title");
+            Map(m => m.FirstName).Name("first_name");
+            Map(m => m.Surname).Name("last_name");
+            Map(m => m.Id).Name("id");
+            Map(m => m.Id).Name("id");
+            Map(m => m.Id).Name("id");
+            Map(m => m.Id).Name("id");
+            Map(m => m.Id).Name("id");
+            //id,title,first_name,last_name,date_of_birth,email,phone_number,booking_reference,flight_pnr,post_code,address_line_1,town
         }
     }
 }
