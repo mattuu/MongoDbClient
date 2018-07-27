@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MongoDbClient.ConsoleApp", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MongoDbClient.Caching", "MongoDbClient.Caching\MongoDbClient.Caching.csproj", "{6C892865-376E-4855-9475-C1CC8676512A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MongoDbClient.Models", "MongoDbClient.Models\MongoDbClient.Models.csproj", "{654AA4FF-40CC-43F4-BB94-14E4292561BC}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,10 +21,6 @@ Global
 		{6C892865-376E-4855-9475-C1CC8676512A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6C892865-376E-4855-9475-C1CC8676512A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6C892865-376E-4855-9475-C1CC8676512A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{654AA4FF-40CC-43F4-BB94-14E4292561BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{654AA4FF-40CC-43F4-BB94-14E4292561BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{654AA4FF-40CC-43F4-BB94-14E4292561BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{654AA4FF-40CC-43F4-BB94-14E4292561BC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

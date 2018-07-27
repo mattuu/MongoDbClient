@@ -4,16 +4,11 @@ using MongoDbClient.Caching.Infrastructure;
 
 namespace MongoDbClient.Caching
 {
-    public interface IIndexEngine
-    {
-        Task AddOrUpdateCustomer(string id, string firstName, string surname, DateTime dateOfBirth, string postCode, string emailAddress, string phoneNumber, string bookingReference, string flightPNR);
-    }
-
-    public class IndexEngine : IIndexEngine
+    public class CustomerIndexEngine : ICustomerIndexEngine
     {
         private readonly IIndexWriter<CustomerCacheModel> _indexWriter;
 
-        public IndexEngine(IIndexWriter<CustomerCacheModel> indexWriter)
+        public CustomerIndexEngine(IIndexWriter<CustomerCacheModel> indexWriter)
         {
             _indexWriter = indexWriter ?? throw new ArgumentNullException(nameof(indexWriter));
         }
